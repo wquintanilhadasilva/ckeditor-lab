@@ -54,17 +54,17 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
 
    addText(txt) {
     const docFrag = this._editor.model.change( writer => {
-      
-      const p1 = writer.createElement( 'paragraph' );
-      const p2 = writer.createElement( 'paragraph' );
-      const blockQuote = writer.createElement( 'blockQuote' );
+
+      const p1 = writer.createElement( '<span>' );
+      // const p2 = writer.createElement( 'paragraph' );
+      // const blockQuote = writer.createElement( 'blockQuote' );
       const docFrag = writer.createDocumentFragment();
     
       writer.append( p1, docFrag );
-      writer.append( blockQuote, docFrag );
-      writer.append( p2, blockQuote );
-      writer.insertText( 'foo', p1 );
-      writer.insertText( 'bar', p2 );
+      // writer.append( blockQuote, docFrag );
+      // writer.append( p2, blockQuote );
+      writer.insertText( txt, p1 );
+      // writer.insertText( 'bar', p2 );
     
       return docFrag;
     } );
