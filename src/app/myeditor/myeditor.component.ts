@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MyUploadAdapter } from './myCustomUploadPlugint';
 
 import DecoupledEditor from 'src/assets/scripts/pl/ckeditor';
+
 // import DecoupledEditor from 'src/assets/scripts/cdn/decouplededitor';
 // import DecoupledEditor from 'src/assets/scripts/cdn/ckeditor5';
 // import DecoupledEditor from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
@@ -33,6 +34,7 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     DecoupledEditor.StandardEditor.create( document.querySelector( '.document-editor__editable' ),
       {
+        language: 'pt-br',
         toolbar: [
           'heading',
           '|',
@@ -59,7 +61,7 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
               { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
           ]
         },
-        language: 'pt-br',
+
       })
       .then( editor => {
           const toolbarContainer = document.querySelector( '.document-editor__toolbar' );

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+// import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 // import { CKEditorModule } from 'ngx-ckeditor';
 
@@ -19,7 +19,7 @@ import { MyeditorComponent } from './myeditor/myeditor.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CKEditorModule,
+    // CKEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

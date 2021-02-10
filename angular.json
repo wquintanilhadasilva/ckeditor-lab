@@ -30,6 +30,7 @@
               "src/styles.css"
             ],
             "scripts": [
+              "src/assets/scripts/pl/translations/pt-br.js"
             ]
           },
           "configurations": {
