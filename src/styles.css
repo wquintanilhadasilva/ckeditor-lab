@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+/* .ck.ck-toolbar>.ck-toolbar__items {
+top: 0px !important;
+position: fixed !important;
+left: 0px !important;
+width: 100% !important;
+
+background-color: #DCDCDC !important; 
+
+} */
+
+
+/* .ck.ck-editor__editable_inline {
+    width: 210mm;
+    height: 297mm;
+    background-color: white;
+    margin-left: calc(50% - 105mm);
+    margin-top: 120px;
+    margin-bottom: 320px;
+    border-color: grey !important;
+    border-style: solid !important;
+} */
