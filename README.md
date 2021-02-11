@@ -22,6 +22,6 @@ This project was create to use and study the [CKEditor Component](https://ckedit
 
 Warning: Do not forget to define the js file with the desired language in the 'scripts' section in the 'scripts' section: 'translation/pt-br.js'.
 
-## Online builder whit plugins
+## Online builder whith plugins
 
 See [Online builder](https://ckeditor.com/ckeditor-5/online-builder/) to generate ckeditor.js to use in your project.
