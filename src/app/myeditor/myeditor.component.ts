@@ -96,18 +96,30 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
   }
 
   addText(txt) {
+    
+    const htmlDP = new HtmlDataProcessor( viewDocument );
+    const viewFragment = htmlDP.toView( '<a href="www.google.com">teste<a/>' );
+    const modelFragment = this._editor.data.toModel( viewFragment );
+    this._editor.model.insertContent( modelFragment );
+
     const docFrag = this._editor.model.change( writer => {
 
-      const p1 = writer.createElement( '<span>' );
-      // const p2 = writer.createElement( 'paragraph' );
-      // const blockQuote = writer.createElement( 'blockQuote' );
+
+
+
+      const lnk = writer.createElement( 'link', { alignment: 'center' } );
+      const p1 = writer.createElement( 'paragraph');
+      const p2 = writer.createElement( 'paragraph' );
+      const blockQuote = writer.createElement( 'blockQuote' );
       const docFrag = writer.createDocumentFragment();
     
       writer.append( p1, docFrag );
-      // writer.append( blockQuote, docFrag );
-      // writer.append( p2, blockQuote );
+      writer.append( blockQuote, docFrag );
+      writer.append( lnk, docFrag );
+      writer.append( p2, blockQuote );
       writer.insertText( txt, p1 );
-      // writer.insertText( 'bar', p2 );
+      writer.insertText( 'bar', p2 );
+      writer.insertText( txt, lnk);
     
       return docFrag;
     } );
