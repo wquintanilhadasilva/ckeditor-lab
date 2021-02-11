@@ -11,6 +11,21 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class AppComponent {
 
+  restricted = false;
+  data: any = '<p>The initial editor data.</p>';
+
+  changeStandartEditor() {
+    this.restricted = false;
+  }
+
+  changeRestrictedEditor() {
+    this.restricted = true;
+  }
+
+  change(val) {
+    this.data = val;
+  }
+
   // @ViewChild('myEditor', { static: false }) myEditor: CKEditorComponent;
   // // ed;
 

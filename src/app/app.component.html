@@ -6,7 +6,20 @@
 <!-- <ckeditor #myEditor name="editor1" [editor]="StandardEditor" [config]="StandardEditorConfig"  data="doc" (change)="onChange($event)" (ready)="onReady($event)"></ckeditor> -->
 <!-- <ck-editor #myEditor name="editor1" [(ngModel)]="doc" skin="moono-lisa" language="en" [fullPage]="true"></ck-editor> -->
 <br/>
-<app-myeditor></app-myeditor>
+<button (click)="changeStandartEditor()">Standard</button>
+&nbsp;
+<button (click)="changeRestrictedEditor()">Restricted</button>
+&nbsp;
+<ng-container *ngIf="restricted">
+    <app-myeditor [restricted]="true" [data]="data" (change)="change($event)"></app-myeditor>
+</ng-container>
+<ng-container *ngIf="!restricted">
+    <app-myeditor [restricted]="false" [data]="data" (change)="change($event)"></app-myeditor>
+</ng-container>
+<hr>
+<pre style="background-color: gainsboro; white-space: pre-wrap;">
+    {{data}}
+</pre>
 <!-- <button (click)="save()">Gravar</button> <span *ngIf="saved">&nbsp;Gravado com sucesso!</span>
 
 <pre *ngIf="saved">
@@ -14,3 +27,6 @@
 </pre>  -->
 <!-- <hr> -->
 <!-- <app-kibana></app-kibana> -->
+
+
+<!-- Teste -->
