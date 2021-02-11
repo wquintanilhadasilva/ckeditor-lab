@@ -1,27 +1,27 @@
 # Lab
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
+This project was create to use and study the [CKEditor Component](https://ckeditor.com/).
 
-## Development server
+## Document Editor
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[Document Editor](https://ckeditor.com/docs/ckeditor5/latest/examples/builds/document-editor.html) documentation.
 
-## Code scaffolding
+[Sample](https://ckeditor.com/ckeditor-5/demo/#document) use this editor mode. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Clipboard
 
-## Build
+[Copy and Past](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/clipboard.html) content in edit document.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Insert text in cursor position
 
-## Running unit tests
+[Insert text](https://ckeditor.com/docs/ckeditor5/latest/api/module_engine_model_model-Model.html#function-insertContent) in cursor position.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Language config
 
-## Running end-to-end tests
+[Language config](https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html) to set language of command bar.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Warning: Do not forget to define the js file with the desired language in the 'scripts' section in the 'scripts' section: 'translation/pt-br.js'.
 
-## Further help
+## Online builder whit plugins
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+See [Online builder](https://ckeditor.com/ckeditor-5/online-builder/) to generate ckeditor.js to use in your project.
