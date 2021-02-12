@@ -12,7 +12,7 @@ import { Component, ViewChild } from '@angular/core';
 export class AppComponent {
 
   restricted = false;
-  data: any = '<p>The initial editor data.</p>';
+  data: any = '<p>The initial editor data. <a href="http://www.google.com">Google</a></p>';
 
   changeStandartEditor() {
     this.restricted = false;

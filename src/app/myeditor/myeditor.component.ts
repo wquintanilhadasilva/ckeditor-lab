@@ -3,10 +3,12 @@ import { AfterViewInit, Component, Input, OnInit, Output, EventEmitter } from '@
 import { MyUploadAdapter } from './myCustomUploadPlugint';
 
 import CK from 'src/assets/scripts/pl/ckeditor';
+import { CKEditor5 } from '@ckeditor/ckeditor5-angular';
 
 // import DecoupledEditor from 'src/assets/scripts/cdn/decouplededitor';
 // import DecoupledEditor from 'src/assets/scripts/cdn/ckeditor5';
 // import DecoupledEditor from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
+// import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 function MyCustomUploadAdapterPlugin( editor ) {
   editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
@@ -37,7 +39,7 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
   _editorFactory = CK.StandardEditor;
   _editorConfig = this.DefaultConfig;
 
-  _editor: any;
+  _editor: CKEditor5.Editor;
 
   @Input()
   data: any = '';
@@ -97,14 +99,33 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
 
   addText(txt) {
     
-    const htmlDP = new HtmlDataProcessor( viewDocument );
-    const viewFragment = htmlDP.toView( '<a href="www.google.com">teste<a/>' );
-    const modelFragment = this._editor.data.toModel( viewFragment );
-    this._editor.model.insertContent( modelFragment );
+    // const htmlDP = new HtmlDataProcessor( viewDocument );
+    // const viewFragment = htmlDP.toView( '<a href="www.google.com">teste<a/>' );
+    // const modelFragment = this._editor.data.toModel( viewFragment );
+    // this._editor.model.insertContent( modelFragment );
+
+    // var x = this._editor.data.processor.toView('<a href="http://www.google.com">Google</a>');
+
+    // console.log(x);
+
+    const s = '<a href="http://www.google.com">Google</a>';
+    console.log(this._editor);
+
+    var x = this._editor.data.processor.toView(s);
+    console.log(x.document);
+
+    
+    // this._editor.model.insertContent( txt );
+    // console.log(this._editor.model.getSelectedContent());
+    // this._editor.model.document.enqueueChanges( () => {
+    //   this._editor.model.document.batch().insert( 0, s );
+    // } );
+
+    // this._editor.data.insertContent(txt);
 
     const docFrag = this._editor.model.change( writer => {
 
-
+      // var x = this._editor.data.processor.toView(s);
 
 
       const lnk = writer.createElement( 'link', { alignment: 'center' } );
@@ -113,6 +134,9 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
       const blockQuote = writer.createElement( 'blockQuote' );
       const docFrag = writer.createDocumentFragment();
     
+      // writer.append( x, docFrag );
+      // writer.insertText( txt, x );
+
       writer.append( p1, docFrag );
       writer.append( blockQuote, docFrag );
       writer.append( lnk, docFrag );
