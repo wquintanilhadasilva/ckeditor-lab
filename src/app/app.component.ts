@@ -3,6 +3,21 @@ import { Component, ViewChild } from '@angular/core';
 // import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 // import  CKEDITOR  from '../assets/scripts/ckeditor/ckeditor';
 
+/*
+https://stackoverflow.com/a/48869478
+Em /tsconfig.json(às vezes também é necessário /src/tsconfig.app.json), habilite a opção resolveJsonModule (reinicialização do servidor webpack dev depois disso):
+    "compilerOptions": {
+      ...
+      "resolveJsonModule": true
+      ...
+Em seguida, em seu componente, por exemplo, /src/app/app.component.tsuse as informações da versão:
+    import { version } from '../../package.json';
+    ...
+    export class AppComponent {
+      public version: string = version;
+    }
+*/
+import { version } from '../../package.json';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +25,12 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  
+
+  constructor() {
+    console.log(version);
+  }
 
   restricted = false;
   data: any = '<p>The initial editor data. <a href="http://www.google.com">Google</a></p>';
