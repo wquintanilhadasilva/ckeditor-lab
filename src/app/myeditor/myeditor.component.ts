@@ -108,11 +108,13 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
 
     // console.log(x);
 
-    const s = '<a href="http://www.google.com">Google</a>';
-    console.log(this._editor);
+    this._editor.execute( 'link', txt, { linkIsExternal: true } );
 
-    var x = this._editor.data.processor.toView(s);
-    console.log(x.document);
+    // const s = '<a href="http://www.google.com">Google</a>';
+    // console.log(this._editor);
+
+    // var x = this._editor.data.processor.toView(s);
+    // console.log(x.document);
 
     
     // this._editor.model.insertContent( txt );
@@ -123,27 +125,28 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
 
     // this._editor.data.insertContent(txt);
 
+    /*
     const docFrag = this._editor.model.change( writer => {
 
       // var x = this._editor.data.processor.toView(s);
 
 
-      const lnk = writer.createElement( 'link', { alignment: 'center' } );
-      const p1 = writer.createElement( 'paragraph');
-      const p2 = writer.createElement( 'paragraph' );
-      const blockQuote = writer.createElement( 'blockQuote' );
+      // const lnk = writer.createElement( 'link', { alignment: 'center' } );
+      const p1 = writer.createElement( 'span');
+      // const p2 = writer.createElement( 'paragraph' );
+      // const blockQuote = writer.createElement( 'blockQuote' );
       const docFrag = writer.createDocumentFragment();
     
       // writer.append( x, docFrag );
       // writer.insertText( txt, x );
 
       writer.append( p1, docFrag );
-      writer.append( blockQuote, docFrag );
-      writer.append( lnk, docFrag );
-      writer.append( p2, blockQuote );
+      // writer.append( blockQuote, docFrag );
+      // writer.append( lnk, docFrag );
+      // writer.append( p2, blockQuote );
       writer.insertText( txt, p1 );
-      writer.insertText( 'bar', p2 );
-      writer.insertText( txt, lnk);
+      // writer.insertText( 'bar', p2 );
+      // writer.insertText( txt, lnk);
     
       return docFrag;
     } );
@@ -151,6 +154,8 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
     // insertContent() does not have to be used in a change() block. It can, though,
     // so this code could be moved to the callback defined above.
     this._editor.model.insertContent( docFrag );
+
+    */
 
   }
 
