@@ -98,38 +98,20 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
   }
 
   addText(txt) {
-    
-    // const htmlDP = new HtmlDataProcessor( viewDocument );
-    // const viewFragment = htmlDP.toView( '<a href="www.google.com">teste<a/>' );
-    // const modelFragment = this._editor.data.toModel( viewFragment );
-    // this._editor.model.insertContent( modelFragment );
 
-    // var x = this._editor.data.processor.toView('<a href="http://www.google.com">Google</a>');
-
-    // console.log(x);
-
-    this._editor.execute( 'link', txt, { linkIsExternal: true } );
-
-    // const s = '<a href="http://www.google.com">Google</a>';
-    // console.log(this._editor);
-
-    // var x = this._editor.data.processor.toView(s);
-    // console.log(x.document);
-
-    
-    // this._editor.model.insertContent( txt );
-    // console.log(this._editor.model.getSelectedContent());
-    // this._editor.model.document.enqueueChanges( () => {
-    //   this._editor.model.document.batch().insert( 0, s );
-    // } );
-
-    // this._editor.data.insertContent(txt);
+    const docFrag = this._editor.model.change( writer => {
+      const val = writer.createElement( 'span');
+      const docF = writer.createDocumentFragment();
+      writer.append( val, docF );
+      writer.insertText( txt, val );
+      return docF;
+    });
+    this._editor.model.insertContent( docFrag );
 
     /*
     const docFrag = this._editor.model.change( writer => {
 
       // var x = this._editor.data.processor.toView(s);
-
 
       // const lnk = writer.createElement( 'link', { alignment: 'center' } );
       const p1 = writer.createElement( 'span');
@@ -156,6 +138,12 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
     this._editor.model.insertContent( docFrag );
 
     */
+
+  }
+
+  addLink(lnk) {
+
+    this._editor.execute( 'link', lnk, { linkIsExternal: true } );
 
   }
 
