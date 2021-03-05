@@ -30,6 +30,9 @@ export class MyeditorComponent implements OnInit, AfterViewInit {
   public set restricted(value: boolean) {
     this._restricted = value;
   }
+  public get restricted(): boolean {
+    return this._restricted;
+  }
 
   @Output()
   change: EventEmitter<any> = new EventEmitter<any>();

@@ -1,13 +1,13 @@
-<input #txt type="text">
+<input #txt type="text" [disabled]="restricted">
 &nbsp;
-<button (click)="addText(txt.value)">add</button>
+<button (click)="addText(txt.value)" [disabled]="restricted">add</button>
 &nbsp;
-<button (click)="addLink(txt.value)">Link</button>
+<button (click)="addLink(txt.value)" [disabled]="restricted">Link</button>
 &nbsp;
 <button (click)="getData()">get content</button>
 &nbsp;
 <p></p>
-<div *ngIf="!restricted">
+<div>
     <div class="document-editor">
         <div class="document-editor__toolbar"></div>
         <div class="document-editor__editable-container">
